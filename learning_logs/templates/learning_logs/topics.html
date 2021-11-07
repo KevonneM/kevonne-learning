@@ -1,0 +1,39 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+    <h1><em>Topics</em></h1>
+{% endblock page_header %}
+
+{% block content %}
+
+    <ul>
+    <div class="card w-75 mb-4">
+        <div class="card-body">
+            <button type="button" class="btn btn-outline-dark btn-lg btn-block">
+                <h3>
+                    <a href="{% url 'learning_logs:new_topic' %}" class="stretched-link">Add a new topic</a>
+                </h3>
+            </button>
+        </div>
+    </div>
+    </ul>
+
+    <ul>
+        {% for topic in topics %}
+
+            <div class="card w-75 mb-4">
+                <button type="button" class="bg-light">
+                    <div class="card-body">    
+                        <h3 class="card-title">
+                            <a href="{% url 'learning_logs:topic' topic.id%}" class="stretched-link">{{ topic }}</a>
+                        </h3>                          
+                    </div>
+                </button>
+            </div>
+
+        {% empty %}
+            <li><h3>No topics have been added yet.</h3></li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
