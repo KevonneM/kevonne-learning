@@ -1,0 +1,1 @@
+A log with user authentication. The log contains entries private to each individual user, where they can write about topics they have learned. Styled with bootstrap 4.
