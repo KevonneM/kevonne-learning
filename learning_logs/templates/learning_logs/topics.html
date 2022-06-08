@@ -22,13 +22,16 @@
         {% for topic in topics %}
 
             <div class="card w-75 mb-4">
-                <button type="button" class="bg-light">
-                    <div class="card-body">    
+                
+                    <div class="card-body text-center">    
                         <h3 class="card-title">
-                            <a href="{% url 'learning_logs:topic' topic.id %}" class="stretched-link">{{ topic }}</a>
+                            <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
                         </h3>                          
                     </div>
-                </button>
+                
+                    <div class="card-footer bg-dark text-center">
+                        <a class="btn btn-danger" href="{% url 'learning_logs:delete-topic' topic.id %}">Delete</a>
+                    </div>
             </div>
 
         {% empty %}
