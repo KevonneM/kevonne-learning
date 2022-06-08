@@ -89,3 +89,23 @@ def edit_entry(request, entry_id):
     
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+@login_required
+def delete_topic(request, topic_id):
+
+    topic = get_object_or_404(Topic, id=topic_id)
+
+    if topic.owner == request.user:
+        topic.delete()
+
+    return redirect('learning_logs:topics')
+
+@login_required
+def delete_entry(request, entry_id):
+    
+    entry = get_object_or_404(Topic, id=entry_id)
+
+    if entry.topic.owner == request.user:
+        entry.delete()
+
+    return redirect('learning_logs:topic')
