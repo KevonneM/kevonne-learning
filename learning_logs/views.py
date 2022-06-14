@@ -103,9 +103,9 @@ def delete_topic(request, topic_id):
 @login_required
 def delete_entry(request, entry_id):
     
-    entry = get_object_or_404(Topic, id=entry_id)
+    entry = get_object_or_404(Entry, id=entry_id)
 
     if entry.topic.owner == request.user:
         entry.delete()
 
-    return redirect('learning_logs:topic')
+    return redirect('learning_logs:topics')
