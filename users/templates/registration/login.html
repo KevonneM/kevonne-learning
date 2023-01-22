@@ -2,21 +2,25 @@
 
 {% load bootstrap4 %}
 
-{% block page_header %}
-    <h2>Log into your account.</h2>
-{% endblock page_header %}
-
 {% block content %}
 
-    <form method="post" action="{% url 'users:login' %}" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
 
-        {% buttons %}
-            <button name="submit" class="btn btn-success">Log in</button>
-        {% endbuttons %}
+<div class="card mx-auto" style="width: 28rem;">
+    <div class="card-body">
+      <h5 class="card-title">Login</h5>
+        <hr>
+        <form method="post" action="{% url 'users:login' %}" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
 
-        <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
-    </form>
+            {% buttons %}
+                <button name="submit" class="btn btn-success">Log in</button>
+            {% endbuttons %}
+
+            <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
+        </form>
+
+    </div>
+</div>
 
 {% endblock content %}

@@ -2,6 +2,7 @@
 
 {% block page_header %}
     <h1><em>Topics</em></h1>
+    <hr>
 {% endblock page_header %}
 
 {% block content %}
@@ -9,7 +10,7 @@
     <ul>
     <div class="card w-75 mb-4">
         <div class="card-body">
-            <button type="button" class="btn btn-outline-dark btn-lg btn-block">
+            <button type="button" class="btn btn-outline-dark btn-sm btn-block">
                 <h3>
                     <a href="{% url 'learning_logs:new_topic' %}" class="stretched-link">Add a new topic</a>
                 </h3>

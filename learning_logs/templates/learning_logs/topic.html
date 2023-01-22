@@ -2,14 +2,15 @@
 
 {% block page_header %}
      <h3>{{ topic }}</h3>
+     <hr>
 {% endblock page_header %}
 
 {% block content %}
-
-    <p>
-        <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
-    </p>
-
+<a href="{% url 'learning_logs:new_entry' topic.id %}">
+    <button type="button" class="btn btn-dark mb-2">
+        Add new entry
+    </button>
+</a>
     {% for entry in entries %}
         <div class="card mb-3">
             <h4 class="card-header">

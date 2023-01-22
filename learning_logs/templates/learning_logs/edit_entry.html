@@ -8,6 +8,8 @@
     
     <h3>Topic: <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h3>
 
+    <hr>
+
     <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
